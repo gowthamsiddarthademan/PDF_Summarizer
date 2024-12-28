@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Summarizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>PDF Summarizer</h1>
+        <h2>Upload a PDF and get a summarized version below</h2>
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="file" name="pdf_file" accept=".pdf" required>
+            </div>
+            <button type="submit">Summarize PDF</button>
+        </form>
+
+        {% if summary %}
+            <div class="summarized-text">
+                <h3>Summarized Text:</h3>
+                <p>{{ summary }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
